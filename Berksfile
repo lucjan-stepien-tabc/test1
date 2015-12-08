@@ -5,9 +5,6 @@ def opsworks_cookbook(name)
   cookbook name, github: 'lucjan-stepien-tabc/opsworks-cookbooks', branch: 'release-chef-11.10', rel: name
 end
 
-%w(dependencies scm_helper mod_php5_apache2 ssh_users opsworks_agent_monit
-   opsworks_java gem_support opsworks_commons opsworks_initial_setup
-   opsworks_nodejs opsworks_aws_flow_ruby opsworks_postgresql apache2
-   deploy mysql memcached).each do |cb|
+%w(dependencies opsworks_initial_setup ssh_host_keys ssh_users mysql::client ebs opsworks_ganglia::client apache2 opsworks_ganglia::configure-client ssh_users mysql::client agent_version deploy::default opsworks_shutdown::default ).each do |cb|
   opsworks_cookbook cb
 end
